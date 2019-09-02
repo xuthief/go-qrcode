@@ -30,6 +30,14 @@ const (
 	Highest
 )
 
+var (
+	QuietZoneSize = 4
+)
+
+func SetQuietZoneSize(q int) {
+	QuietZoneSize = q
+}
+
 // qrCodeVersion describes the data length and encoding order of a single QR
 // Code version. There are 40 versions numbers x 4 recovery levels == 160
 // possible qrCodeVersion structures.
@@ -3034,7 +3042,7 @@ func (v qrCodeVersion) symbolSize() int {
 // quietZoneSize returns the number of pixels of border space on each side of
 // the QR Code. The quiet space assists with decoding.
 func (v qrCodeVersion) quietZoneSize() int {
-	return 4
+	return QuietZoneSize
 }
 
 // getQRCodeVersion returns the QR Code version by version number and recovery

@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	qrcode "github.com/skip2/go-qrcode"
+	qrcode "github.com/xuthief/go-qrcode"
 )
 
 func main() {
@@ -47,6 +47,7 @@ Usage:
 
 	content := strings.Join(flag.Args(), " ")
 
+	qrcode.SetQuietZoneSize(4)
 	var err error
 	var q *qrcode.QRCode
 	q, err = qrcode.New(content, qrcode.Highest)
